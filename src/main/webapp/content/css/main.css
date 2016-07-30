@@ -481,4 +481,85 @@ Social Buttons
     color: #fff;
 }
 
+
+.footer {
+    background-color: #286090;
+    border-color: #e7e7e7;
+    border: 1px solid transparent;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.copyright
+{
+	 background-color: #010131;
+	 border-color: #e7e7e7;
+     border: 1px solid transparent;
+     color: white;
+     padding: 10px;
+     text-align: center;
+}
+
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-link
+{
+    color: #d9edf7;
+    font-size: 14px;
+}
+
+.footer .social
+{
+    padding: 7px 0 1px;
+}
+
+.footer .title {
+    font-size: 20px;
+    line-height: 24px;
+    font-family: cursive;
+}
+
+.footer .social li a {
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.footer .social li {
+    overflow: hidden;
+    margin-bottom: 11px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.footer a:hover
+{
+	color: #fdfdfc; 
+}
+
+.footer .social li figure {
+    float: left;
+    margin: -2px 16px 0 0;
+}
+
+hr{
+	margin-top:10px;
+}
+
+.left-social
+{
+	text-align: left;
+}
+
+.our-contacts-container{
+	padding-left: 20vh;
+    padding-right: 0px;
+    text-align: center;
+}
 /* jhipster-needle-css-add-main JHipster will add new css style */
