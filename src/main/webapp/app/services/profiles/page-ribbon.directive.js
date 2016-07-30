@@ -27,7 +27,7 @@
             ProfileService.getProfileInfo().then(function(response) {
                 if (response.ribbonEnv) {
                     scope.ribbonEnv = response.ribbonEnv;
-                    scope.ribbonEnv = "yoUVcode";
+                    scope.ribbonEnv = "alpha";
                     element.addClass(response.ribbonEnv);
                     element.removeClass('hidden');
                 }
