@@ -11,6 +11,8 @@
     <!-- build:css content/css/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
+    <link rel="stylesheet" href="bower_components/angular-toggle-switch/angular-toggle-switch-bootstrap.css">
+    <link rel="stylesheet" href="bower_components/angular-toggle-switch/angular-toggle-switch.css">
     <!-- endinject -->
     <link rel="stylesheet" href="content/css/vendor.css">
     <!-- endbuild -->
@@ -24,65 +26,12 @@
     <![endif]-->
     <page-ribbon></page-ribbon>
     <div ui-view="navbar" ng-cloak></div>
-    <div class="container">
+    <div class="containerBody">
         <div class="well" ui-view="content">
             <!-- Angular views -->
         </div>
 
-        <div class="footer" ng-cloak>
- 	<footer>
-          <div class="row">
-          <div class="col-sm-4">
-          
-          <div  class="title"> TRENDING </div>
-          <hr/>
-          <ul>
-          <li><a href="#" class="footer-link"> News </a>  </li>
-          <li><a href="#" class="footer-link"> Angular JS </a> </li>
-          <li><a href="#" class="footer-link"> Java </a> </li>
-          <li><a href="#" class="footer-link"> PL/SQL </a> </li>
-          <li><a href="#" class="footer-link"> Hibernate </a> </li>
-          <li><a href="#" class="footer-link"> Spring </a> </li>
-          <li><a href="#" class="footer-link"> Apache Flex </a> </li>
-          </ul>
-          </div>
-          <div class="col-sm-4">
-          
-          <div  class="title" > ABOUT yoUVcode.com </div>
-          <hr/>
-          <span> yoUVcode.com is for Java, Flex, Oracle, AngularJS developers. <br/>
-          All examples are simple, easy to understand and well tested before publishing. <br/>
-		  yoUVcode.com is created, written by and maintained by <br/> Umang Parekh & Vinay Gulati</span>
-          </div>
-          
-         
-          <div class="col-sm-4">
-          
-          <div class="title"> OUR CONTACTS </div>
-          <hr/>
-          <div class="row our-contacts-container">
-          <div class="left-social">
-          <ul class="social">
-          <li>
-          	<li> <a href="https://twitter.com/#!/yoUVcode" class="footer-link"  target="_blank">
-          	<figure><img src="../content/images/twitter.png" width="40" height="40" alt=""></figure>
-                       	    	Follow us on Twitter </a>  </li>
-          	<li> <a href="https://facebook.com/#!/yoUVcode" class="footer-link"  target="_blank">
-          	<figure><img src="../content/images/facebook.png" width="40" height="40" alt=""></figure>
-                       	    	Join us on Facebook </a>  </li>
-          	<li> <a href="https://youvcode.com/#!/subscribe/yoUVcode" class="footer-link"  target="_blank">
-          	<figure><img src="../content/images/rss.png" width="40" height="40" alt=""></figure>
-                       	    	Subscribe to our blog </a>  </li>
-          	<li> <a href="https://youvcode.com/#!/contact/yoUVcode" class="footer-link"  target="_blank">
-          	<figure><img src="../content/images/email.png" width="40" height="40" alt=""></figure>
-                       	    	Contact US</a> </li>
-          	</ul>
-          	</div>
-          </div>
-          </div>
-    </div>
-    </footer>
-    </div>
+    <div class="footer" ui-view="footer" ng-cloak></div>
    
     <div class="copyright" ng-cloak>
           Copyright © 2016-2017 yoUVcode.com, all rights reserved.
@@ -125,6 +74,7 @@
     <script src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.js"></script>
     <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/angular-toggle-switch/angular-toggle-switch.min.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
 

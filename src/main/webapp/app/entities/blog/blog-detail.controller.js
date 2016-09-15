@@ -5,7 +5,7 @@
         .module('yoUVcodeApp')
         .controller('BlogDetailController', BlogDetailController);
 
-    BlogDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'DataUtils', 'entity', 'Blog', 'Category', 'Subcategory', 'BlogStatus', 'User'];
+    BlogDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'DataUtils', 'entity', 'Blog', 'Category', 'SubCategory', 'BlogStatus', 'User'];
 
     function BlogDetailController($scope, $rootScope, $stateParams, DataUtils, entity, Blog, Category, Subcategory, BlogStatus, User) {
         var vm = this;
