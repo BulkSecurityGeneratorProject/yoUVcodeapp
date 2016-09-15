@@ -7,6 +7,8 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.mycompany.myapp.domain.User;
+
 import java.util.Collection;
 
 /**
@@ -35,6 +37,28 @@ public final class SecurityUtils {
             }
         }
         return userName;
+    }
+    
+    /**
+     * Get the login of the current user with return type user.
+     *
+     * @return the login of the current user
+     */
+    public static User getCurrentLogin() {
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        Authentication authentication = securityContext.getAuthentication();
+        String userName = null;
+        User u = new User();
+        if (authentication != null) {
+            if (authentication.getPrincipal() instanceof UserDetails) {
+                UserDetails springSecurityUser = (UserDetails) authentication.getPrincipal();
+                userName = springSecurityUser.getUsername();
+            } else if (authentication.getPrincipal() instanceof String) {
+                userName = (String) authentication.getPrincipal();
+            }
+            u.setCreatedBy(userName);
+        }
+        return u;
     }
 
     /**
