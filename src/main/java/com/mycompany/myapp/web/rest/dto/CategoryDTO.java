@@ -22,10 +22,8 @@ public class CategoryDTO implements Serializable {
     @NotNull
     private Boolean active_ind;
 
-    @NotNull
     private ZonedDateTime created_date;
 
-    @NotNull
     private ZonedDateTime last_chng_date;
 
 

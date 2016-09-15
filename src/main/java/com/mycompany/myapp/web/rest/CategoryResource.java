@@ -4,8 +4,11 @@ import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Category;
 import com.mycompany.myapp.repository.CategoryRepository;
 import com.mycompany.myapp.repository.search.CategorySearchRepository;
+import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import com.mycompany.myapp.web.rest.util.PaginationUtil;
+
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -20,6 +23,7 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -58,6 +62,9 @@ public class CategoryResource {
         if (category.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("category", "idexists", "A new category cannot already have an ID")).body(null);
         }
+        ZonedDateTime datetime = ZonedDateTime.now(); 
+        category.setCreated_date(datetime);
+        category.setChanged_by(SecurityUtils.getCurrentLogin());
         Category result = categoryRepository.save(category);
         categorySearchRepository.save(result);
         return ResponseEntity.created(new URI("/api/categories/" + result.getId()))
@@ -83,6 +90,9 @@ public class CategoryResource {
         if (category.getId() == null) {
             return createCategory(category);
         }
+        ZonedDateTime datetime = ZonedDateTime.now(); 
+        category.setLast_chng_date(datetime);
+        category.setLast_chng_by(SecurityUtils.getCurrentLogin());
         Category result = categoryRepository.save(category);
         categorySearchRepository.save(result);
         return ResponseEntity.ok()
