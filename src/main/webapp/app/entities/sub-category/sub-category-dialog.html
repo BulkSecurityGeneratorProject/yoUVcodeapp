@@ -8,40 +8,49 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.subCategory.id">
-            <label for="id" translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.subCategory.id" readonly />
+        <div class="row">
+	        <div class="form-group col-md-4" ng-show="vm.subCategory.id">
+	            <label for="id" translate="global.field.id">ID</label>
+	            <input type="text" class="form-control" id="id" name="id"
+	                    ng-model="vm.subCategory.id" readonly />
+	        </div>
+	        <div class="form-group col-md-4 col-md-offset-2">
+	            <label class="control-label" translate="yoUVcodeApp.subCategory.active_ind" for="field_active_ind">Active Ind</label>
+	            <!-- <input type="checkbox" class="form-control" name="active_ind" id="field_active_ind"
+	                    ng-model="vm.subCategory.active_ind"
+	                     /> -->
+	            <toggle-switch class="" 
+            			  name="active_ind" 
+            			  id="field_active_ind"
+                          ng-model="vm.subCategory.active_ind"
+                          on-label="Yes"
+                          off-label="No">
+                           <toggle-switch>
+	            <div ng-show="editForm.active_ind.$invalid">
+	                <p class="help-block"
+	                    ng-show="editForm.active_ind.$error.required" translate="entity.validation.required">
+	                    This field is required.
+	                </p>
+	            </div>
+	        </div>
         </div>
         <div class="form-group">
             <label class="control-label" translate="yoUVcodeApp.subCategory.sub_category_title" for="field_sub_category_title">Sub Category Title</label>
-            <input type="text" class="form-control" name="sub_category_title" id="field_sub_category_title"
-                    ng-model="vm.subCategory.sub_category_title"
-                    required ng-maxlength="1000" />
-            <div ng-show="editForm.sub_category_title.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.sub_category_title.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.sub_category_title.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="1000">
-                    This field cannot be longer than 1000 characters.
-                </p>
-            </div>
+	            <input type="text" class="form-control" name="sub_category_title" id="field_sub_category_title"
+	                    ng-model="vm.subCategory.sub_category_title"
+	                    required ng-maxlength="1000" />
+	            <div ng-show="editForm.sub_category_title.$invalid">
+	                <p class="help-block"
+	                    ng-show="editForm.sub_category_title.$error.required" translate="entity.validation.required">
+	                    This field is required.
+	                </p>
+	                <p class="help-block"
+	                    ng-show="editForm.sub_category_title.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="1000">
+	                    This field cannot be longer than 1000 characters.
+	                </p>
+	    	</div>
         </div>
-        <div class="form-group">
-            <label class="control-label" translate="yoUVcodeApp.subCategory.active_ind" for="field_active_ind">Active Ind</label>
-            <input type="checkbox" class="form-control" name="active_ind" id="field_active_ind"
-                    ng-model="vm.subCategory.active_ind"
-                     />
-            <div ng-show="editForm.active_ind.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.active_ind.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label class="control-label" translate="yoUVcodeApp.subCategory.created_date" for="field_created_date">Created Date</label>
                 <div class="input-group">
                     <input id="field_created_date" type="text" class="form-control" name="created_date" datetime-picker="{{dateformat}}" ng-model="vm.subCategory.created_date" is-open="vm.datePickerOpenStatus.created_date"
@@ -80,7 +89,7 @@
                     This field should be a date and time.
                 </p>
             </div>
-        </div>
+        </div> -->
 
         <div class="form-group">
             <label translate="yoUVcodeApp.subCategory.category_id" for="field_category_id">Category Id</label>
@@ -88,7 +97,7 @@
                 <option value=""></option>
             </select>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label translate="yoUVcodeApp.subCategory.created_by" for="field_created_by">Created By</label>
             <select class="form-control" id="field_created_by" name="created_by" ng-model="vm.subCategory.created_by" ng-options="user as user.login for user in vm.users track by user.id" required>
                 <option value=""></option>
@@ -111,7 +120,7 @@
                 ng-show="editForm.last_chng_by.$error.required" translate="entity.validation.required">
                 This field is required.
             </p>
-        </div>
+        </div> -->
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
