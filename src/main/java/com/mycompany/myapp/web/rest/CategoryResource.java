@@ -92,7 +92,7 @@ public class CategoryResource {
         }
         ZonedDateTime datetime = ZonedDateTime.now(); 
         category.setLast_chng_date(datetime);
-        category.setLast_chng_by(SecurityUtils.getCurrentLogin());
+        /*category.setLast_chng_by(SecurityUtils.getCurrentLogin());*/
         Category result = categoryRepository.save(category);
         categorySearchRepository.save(result);
         return ResponseEntity.ok()
