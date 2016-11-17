@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.SubCategory;
 import com.mycompany.myapp.repository.SubCategoryRepository;
 import com.mycompany.myapp.repository.search.SubCategorySearchRepository;
+import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import com.mycompany.myapp.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -58,6 +60,9 @@ public class SubCategoryResource {
         if (subCategory.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("subCategory", "idexists", "A new subCategory cannot already have an ID")).body(null);
         }
+        ZonedDateTime datetime = ZonedDateTime.now(); 
+        subCategory.setCreated_date(datetime);
+        subCategory.setCreated_by(SecurityUtils.getCurrentLogin());
         SubCategory result = subCategoryRepository.save(subCategory);
         subCategorySearchRepository.save(result);
         return ResponseEntity.created(new URI("/api/sub-categories/" + result.getId()))
