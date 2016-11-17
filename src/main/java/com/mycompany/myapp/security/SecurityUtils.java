@@ -8,8 +8,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.mycompany.myapp.domain.User;
+import com.mycompany.myapp.repository.UserRepository;
 
 import java.util.Collection;
+import java.util.Optional;
+
+import javax.inject.Inject;
 
 /**
  * Utility class for Spring Security.
@@ -18,6 +22,9 @@ public final class SecurityUtils {
 
     private SecurityUtils() {
     }
+    
+    @Inject
+    private static UserRepository userRepository;
 
     /**
      * Get the login of the current user.
@@ -49,6 +56,7 @@ public final class SecurityUtils {
         Authentication authentication = securityContext.getAuthentication();
         String userName = null;
         User u = new User();
+        Optional<User> us = null;
         if (authentication != null) {
             if (authentication.getPrincipal() instanceof UserDetails) {
                 UserDetails springSecurityUser = (UserDetails) authentication.getPrincipal();
@@ -56,6 +64,14 @@ public final class SecurityUtils {
             } else if (authentication.getPrincipal() instanceof String) {
                 userName = (String) authentication.getPrincipal();
             }
+            us = userRepository.findOneByLogin(userName).map(ur -> {
+                ur.getAuthorities().size();
+                return ur;
+            });
+            u.setFirstName(us.get().getFirstName());
+            u.setActivated(us.get().getActivated());
+            u.setId(us.get().getId());
+            u.setLastName(us.get().getLastName());
             u.setCreatedBy(userName);
         }
         return u;
