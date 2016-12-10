@@ -20,20 +20,13 @@
                 	<a ui-sref="blog-detail({id:blog.id})">{{blog.id}}</a>
                 </div> -->
                 <div ng-repeat="blog in vm.blogs track by blog.id">
-                <div class="col-md-1">
-                <h3>{{blog.hits}}</h3>
-                <div>views</div>
-                </div>
-                <div class="col-md-11">
-                <h2><a ui-sref="blog-detail({id:blog.id})">{{blog.blogTitle}}</a></h2>
-                <div>By {{blog.created_byLogin}} |  Published Date {{blog.created_date | date:'medium'}}</div>
-                </div></div>
-                <div class="text-center">
+               <blog-info blog="blog"></blog-info>
+                
+            </div>
+<div class="text-center">
 			        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
 			        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
 			    </div>
-            </div>
-
             <!-- <p translate="home.question">
                 If you have any question on JHipster:
             </p>
@@ -49,6 +42,7 @@
             <p>
              <span translate="home.like">If you like JHipster, don't forget to give us a star on </span>&nbsp;<a href="https://github.com/jhipster/generator-jhipster" target="_blank" translate="home.github">Github</a>!
             </p> -->
+        </div>
         </div>
         <div class="col-md-3">
             <span class="hipster img-responsive img-rounded"></span>
