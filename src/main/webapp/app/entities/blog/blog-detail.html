@@ -1,66 +1,45 @@
 
 <div>
-    <h2><span translate="yoUVcodeApp.blog.detail.title">Blog</span> {{vm.blog.id}}</h2>
-    <hr>
-    <jhi-alert-error></jhi-alert-error>
-    <dl class="dl-horizontal jh-entity-details">
-        <dt><span translate="yoUVcodeApp.blog.blogTitle">Blog Title</span></dt>
-        <dd>
-            <span>{{vm.blog.blogTitle}}</span>
-        </dd>
-        <dt><span translate="yoUVcodeApp.blog.description">Description</span></dt>
-        <dd>
-            <span>{{vm.blog.description}}</span>
-        </dd>
-        <dt><span translate="yoUVcodeApp.blog.hits">Hits</span></dt>
-        <dd>
-            <span>{{vm.blog.hits}}</span>
-        </dd>
-        <dt><span translate="yoUVcodeApp.blog.blogUrl">Blog Url</span></dt>
-        <dd>
-            <span>{{vm.blog.blogUrl}}</span>
-        </dd>
-        <dt><span translate="yoUVcodeApp.blog.active_ind">Active Ind</span></dt>
-        <dd>
-            <span>{{vm.blog.active_ind}}</span>
-        </dd>
-        <dt><span translate="yoUVcodeApp.blog.publishDate">Publish Date</span></dt>
-        <dd>
-            <span>{{vm.blog.publishDate | date:'medium'}}</span>
-        </dd>
-        <dt><span translate="yoUVcodeApp.blog.created_date">Created Date</span></dt>
-        <dd>
-            <span>{{vm.blog.created_date | date:'medium'}}</span>
-        </dd>
-        <dt><span translate="yoUVcodeApp.blog.last_chng_date">Last Chng Date</span></dt>
-        <dd>
-            <span>{{vm.blog.last_chng_date | date:'medium'}}</span>
-        </dd>
-        <dt><span translate="yoUVcodeApp.blog.category_id">Category Id</span></dt>
-        <dd>
-            <a ui-sref="category-detail({id:vm.blog.category_idId})">{{vm.blog.category_idId}}</a>
-        </dd>
-        <dt><span translate="yoUVcodeApp.blog.subCategory_id">Sub Category Id</span></dt>
-        <dd>
-            <a ui-sref="subcategory-detail({id:vm.blog.subCategory_idId})">{{vm.blog.subCategory_idId}}</a>
-        </dd>
-        <dt><span translate="yoUVcodeApp.blog.status_id">Status Id</span></dt>
-        <dd>
-            <a ui-sref="blog-status-detail({id:vm.blog.status_idId})">{{vm.blog.status_idId}}</a>
-        </dd>
-        <dt><span translate="yoUVcodeApp.blog.created_by">Created By</span></dt>
-        <dd>
-            {{vm.blog.created_byLogin}}
-        </dd>
-        <dt><span translate="yoUVcodeApp.blog.last_chng_by">Last Chng By</span></dt>
-        <dd>
-            {{vm.blog.last_chng_byLogin}}
-        </dd>
-    </dl>
+	<div class="row">
+		<div class="col-sm-9">
+			<jhi-alert-error></jhi-alert-error>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+				 {{vm.blog.blogTitle}} 
+				
+				   </div>
+				<div class="panel-body">
+					<div class="row padding-bottom-inherit">
+					
+					<div class="col-sm-6 text-align-left">
+						<a ui-sref="category-detail({id:vm.blog.category_idId})">{{vm.blog.category_idLbl}}</a>
+						| <a ui-sref="subcategory-detail({id:vm.blog.subCategory_idId})">{{vm.blog.subCategory_idLbl}}</a>
+						| <span class="badge">{{vm.blog.hits}}</span>  Views
+					</div>
+					
+					<div class="col-sm-6 text-align-right">
+						Created By
+						<strong>{{vm.blog.created_byLogin}}</strong> on <strong>{{vm.blog.publishDate |
+						date:'dd-MMM-yyyy' }}</strong></div>
+					
+					</div>
+					<div class="row blog-detail-description well">
+						<span>{{vm.blog.description}}</span>
+					</div>
+					
+					
+				</div>
+				<div class="panel-footer">
+						<button type="submit" onclick="window.history.back()"
+							class="btn btn-info">
+							<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span
+								translate="entity.action.back"> Back</span>
+						</button>
 
-    <button type="submit"
-            onclick="window.history.back()"
-            class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
-    </button>
+					</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-3"></div>
 </div>
