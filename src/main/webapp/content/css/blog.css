@@ -1,0 +1,35 @@
+.blog-viewBox {
+    text-align: center;
+    font-style: inherit;
+    font-family: cursive;
+}
+
+.margin-top-10px{
+	margin-top: 10px;
+}
+
+.margin-top-5px{
+	margin-top: 5px;
+}
+
+.blog-info-box {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+        
+}
+
+.blog-detail-description {
+    height: 50vh;    
+}
+
+.padding-bottom-inherit {
+    padding-bottom: inherit;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-right {
+    text-align: right;
+}
