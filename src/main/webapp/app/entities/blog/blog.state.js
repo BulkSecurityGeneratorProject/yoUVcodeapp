@@ -117,7 +117,7 @@
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
+              var editBlog =  $uibModal.open({
                     templateUrl: 'app/entities/blog/blog-dialog.html',
                     controller: 'BlogDialogController',
                     controllerAs: 'vm',
@@ -128,11 +128,30 @@
                             return Blog.get({id : $stateParams.id}).$promise;
                         }]
                     }
-                }).result.then(function() {
+                })
+              /*  .rendered.then(function(){
+                  alert('hi');
+                  var el = $('#editor-container').get(0);
+                  var quill = new Quill(el, {
+                    modules: {
+                      toolbar: [
+                        [{ header: [1, 2, false] }],
+                        ['bold', 'italic', 'underline'],
+                        ['image', 'code-block']
+                      ]
+                    },
+                    placeholder: 'Compose an epic...',
+                    theme: 'snow'  // or 'bubble'
+                  });
+                }) */
+                .result.then(function() {
                     $state.go('blog', null, { reload: true });
                 }, function() {
                     $state.go('^');
                 });
+
+
+
             }]
         })
         .state('blog.delete', {

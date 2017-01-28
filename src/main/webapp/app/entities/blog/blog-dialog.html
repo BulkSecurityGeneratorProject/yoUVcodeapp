@@ -1,6 +1,7 @@
 
 <form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
-
+  <div id="editor">
+  </div>
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
@@ -16,8 +17,8 @@
 	        </div>
 	        <div class="form-group col-md-4 col-md-offset-2">
 	            <label class="control-label" translate="yoUVcodeApp.blog.active_ind" for="field_active_ind">Active Ind</label>
-            	<toggle-switch class="" 
-            			  name="active_ind" 
+            	<toggle-switch class=""
+            			  name="active_ind"
             			  id="field_active_ind"
                           ng-model="vm.blog.active_ind"
                           on-label="Yes"
@@ -31,7 +32,7 @@
             </div>
             </div>
         </div>
-	            
+
         <div class="form-group">
             <label class="control-label" translate="yoUVcodeApp.blog.blogTitle" for="field_blogTitle">Blog Title</label>
             <input type="text" class="form-control" name="blogTitle" id="field_blogTitle"
@@ -50,8 +51,10 @@
         </div>
         <div class="form-group">
             <label class="control-label" translate="yoUVcodeApp.blog.description" for="field_description">Description</label>
-                <textarea class="form-control" name="description" id="field_description"
-                    ng-model="vm.blog.description" required max="30000" />
+                <!--<textarea class="form-control" name="description" id="field_description"
+                    ng-model="vm.blog.description" required max="30000" />-->
+              <div id="editor-container">
+
             <div ng-show="editForm.description.$invalid">
                 <p class="help-block"
                     ng-show="editForm.description.$error.required" translate="entity.validation.required">

@@ -21,10 +21,28 @@
         vm.subcategories = SubCategory.query();
         vm.blogstatuses = BlogStatus.query();
         vm.users = User.query();
+        var quill = {};
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
         });
+
+        $timeout(function (){
+          alert('hi');
+          var el = $('#editor-container').get(0);
+          quill = new Quill(el, {
+            modules: {
+              toolbar: [
+                [{ header: [1, 2, false] }],
+                ['bold', 'italic', 'underline'],
+                ['image', 'code-block']
+              ]
+            },
+            placeholder: 'Compose an epic...',
+            theme: 'snow'  // or 'bubble'
+          });
+          quill.setText(vm.blog.description);
+        }, 100);
 
         function clear () {
             $uibModalInstance.dismiss('cancel');
@@ -33,6 +51,8 @@
         function save () {
             vm.isSaving = true;
             if (vm.blog.id !== null) {
+              vm.blog.description = quill.getText();
+              console.log("quill->Text "+quill.getText());
                 Blog.update(vm.blog, onSaveSuccess, onSaveError);
             } else {
                 Blog.save(vm.blog, onSaveSuccess, onSaveError);
@@ -56,5 +76,7 @@
         function openCalendar (date) {
             vm.datePickerOpenStatus[date] = true;
         }
+
+
     }
 })();
