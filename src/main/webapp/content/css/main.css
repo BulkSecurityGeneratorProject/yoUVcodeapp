@@ -562,4 +562,8 @@ hr{
     padding-right: 0px;
     text-align: center;
 }
+
+.scrolly {
+  max-height: 295px;
+  overflow-y: auto; }
 /* jhipster-needle-css-add-main JHipster will add new css style */
