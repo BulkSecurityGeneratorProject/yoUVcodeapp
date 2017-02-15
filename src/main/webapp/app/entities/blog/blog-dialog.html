@@ -66,23 +66,7 @@
                 </p>
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label" translate="yoUVcodeApp.blog.hits" for="field_hits">Hits</label>
-            <input type="number" class="form-control" name="hits" id="field_hits"
-                    ng-model="vm.blog.hits"
-                    required />
-            <div ng-show="editForm.hits.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.hits.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.hits.$error.number" translate="entity.validation.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label class="control-label" translate="yoUVcodeApp.blog.blogUrl" for="field_blogUrl">Blog Url</label>
             <input type="text" class="form-control" name="blogUrl" id="field_blogUrl"
                     ng-model="vm.blog.blogUrl"
@@ -93,7 +77,7 @@
                     This field is required.
                 </p>
             </div>
-        </div>
+        </div> -->
         <div class="form-group">
             <label class="control-label" translate="yoUVcodeApp.blog.publishDate" for="field_publishDate">Publish Date</label>
                 <div class="input-group">
@@ -147,7 +131,7 @@
 
         <div class="form-group">
             <label translate="yoUVcodeApp.blog.category_id" for="field_category_id">Category Id</label>
-            <select class="form-control" id="field_category_id" name="category_id" ng-model="vm.blog.category_idId" ng-options="category.id as category.id for category in vm.categories"             required>
+            <select class="form-control" id="field_category_id" name="category_id" ng-model="vm.blog.category_idId" ng-options="category.id as category.category_title for category in vm.categories"             required>
                 <option value=""></option>
             </select>
         </div>
@@ -159,13 +143,13 @@
         </div>
         <div class="form-group">
             <label translate="yoUVcodeApp.blog.subCategory_id" for="field_subCategory_id">Sub Category Id</label>
-            <select class="form-control" id="field_subCategory_id" name="subCategory_id" ng-model="vm.blog.subCategory_idId" ng-options="subcategory.id as subcategory.id for subcategory in vm.subcategories"            >
+            <select class="form-control" id="field_subCategory_id" name="subCategory_id" ng-model="vm.blog.subCategory_idId" ng-options="subcategory.id as subcategory.sub_category_title for subcategory in vm.subcategories"            >
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
             <label translate="yoUVcodeApp.blog.status_id" for="field_status_id">Status Id</label>
-            <select class="form-control" id="field_status_id" name="status_id" ng-model="vm.blog.status_idId" ng-options="blogStatus.id as blogStatus.id for blogStatus in vm.blogstatuses"             required>
+            <select class="form-control" id="field_status_id" name="status_id" ng-model="vm.blog.status_idId" ng-options="blogStatus.id as blogStatus.blog_status for blogStatus in vm.blogstatuses"             required>
                 <option value=""></option>
             </select>
         </div>
