@@ -28,7 +28,6 @@
         });
 
         $timeout(function (){
-          alert('hi');
           var el = $('#editor-container').get(0);
           quill = new Quill(el, {
             modules: {
@@ -50,11 +49,14 @@
 
         function save () {
             vm.isSaving = true;
+            vm.blog.description = quill.getText();
+            vm.blog.description = vm.blog.description.slice(0, -1);
             if (vm.blog.id !== null) {
-              vm.blog.description = quill.getText();
               console.log("quill->Text "+quill.getText());
                 Blog.update(vm.blog, onSaveSuccess, onSaveError);
             } else {
+            	vm.blog.hits=1;
+            	vm.blog.blogUrl=vm.blog.blogTitle;
                 Blog.save(vm.blog, onSaveSuccess, onSaveError);
             }
         }
