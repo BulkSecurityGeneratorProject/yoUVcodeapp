@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Blog;
 import com.mycompany.myapp.repository.BlogRepository;
 import com.mycompany.myapp.repository.search.BlogSearchRepository;
+import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import com.mycompany.myapp.web.rest.util.PaginationUtil;
 import com.mycompany.myapp.web.rest.dto.BlogDTO;
@@ -22,6 +23,7 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -64,6 +66,11 @@ public class BlogResource {
         if (blogDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("blog", "idexists", "A new blog cannot already have an ID")).body(null);
         }
+        ZonedDateTime datetime = ZonedDateTime.now(); 
+        blogDTO.setCreated_date(datetime);
+        blogDTO.setCreated_byId((long) 3);
+        blogDTO.setLast_chng_date(datetime);
+        blogDTO.setLast_chng_byId((long) 3);
         Blog blog = blogMapper.blogDTOToBlog(blogDTO);
         blog = blogRepository.save(blog);
         BlogDTO result = blogMapper.blogToBlogDTO(blog);
