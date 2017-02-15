@@ -36,10 +36,8 @@ public class BlogDTO implements Serializable {
 
     private ZonedDateTime publishDate;
 
-    @NotNull
     private ZonedDateTime created_date;
 
-    @NotNull
     private ZonedDateTime last_chng_date;
 
 
