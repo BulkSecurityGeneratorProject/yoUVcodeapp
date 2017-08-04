@@ -53,19 +53,20 @@
             <label class="control-label" translate="yoUVcodeApp.blog.description" for="field_description">Description</label>
                 <!--<textarea class="form-control" name="description" id="field_description"
                     ng-model="vm.blog.description" required max="30000" />-->
-              <div id="editor-container">
-
-            <div ng-show="editForm.description.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.description.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.description.$error.max" translate="entity.validation.max" translate-value-max="30000">
-                    This field cannot be more than 30000.
-                </p>
-            </div>
-        </div>
+              	<input name="description" type="hidden">
+              	<div id="editor-container">
+              	</div>
+	            <div ng-show="editForm.description.$invalid">
+	                <p class="help-block"
+	                    ng-show="editForm.description.$error.required" translate="entity.validation.required">
+	                    This field is required.
+	                </p>
+	                <p class="help-block"
+	                    ng-show="editForm.description.$error.max" translate="entity.validation.max" translate-value-max="30000">
+	                    This field cannot be more than 30000.
+	                </p>
+	            </div>
+        
         <!-- <div class="form-group">
             <label class="control-label" translate="yoUVcodeApp.blog.blogUrl" for="field_blogUrl">Blog Url</label>
             <input type="text" class="form-control" name="blogUrl" id="field_blogUrl"
@@ -76,8 +77,8 @@
                     ng-show="editForm.blogUrl.$error.required" translate="entity.validation.required">
                     This field is required.
                 </p>
-            </div>
-        </div> -->
+            </div>-->
+        </div> 
         <div class="form-group">
             <label class="control-label" translate="yoUVcodeApp.blog.publishDate" for="field_publishDate">Publish Date</label>
                 <div class="input-group">
