@@ -30,14 +30,14 @@
         $timeout(function (){
           var el = $('#editor-container').get(0);
           quill = new Quill(el, {
-            modules: {
-              toolbar: [
-                [{ header: [1, 2, false] }],
-                ['bold', 'italic', 'underline'],
-                ['image', 'code-block']
-              ]
-            },
-            placeholder: 'Compose an epic...',
+        	  modules: {
+        		    toolbar: [
+        		      ['bold', 'italic'],
+        		      ['link', 'blockquote', 'code-block', 'image'],
+        		      [{ list: 'ordered' }, { list: 'bullet' }]
+        		    ]
+        		  },
+            placeholder: 'Enter the description...',
             theme: 'snow'  // or 'bubble'
           });
           quill.setText(vm.blog.description);
