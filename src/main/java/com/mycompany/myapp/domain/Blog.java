@@ -31,7 +31,7 @@ public class Blog implements Serializable {
     private String blogTitle;
 
     @NotNull
-    @Max(value = 30000)
+    @Size(max = 30000)
     @Lob
     @Column(name = "description", nullable = false)
     private String description;
